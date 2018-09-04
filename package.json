@@ -1,27 +1,140 @@
 {
-    "name": "vscode-touchbar",
-    "displayName": "vscode-touchbar",
-    "description": "nye",
+    "name": "zoles-touchbar-extention",
+    "displayName": "Zoles Touch Bar Buttons",
+    "description": "Basic experiment to create VS Code extention for MacBookPro's touch bar",
     "version": "0.0.1",
     "publisher": "zoles",
+    "author": {
+        "name": "Zoltan Mehes"
+    },
     "engines": {
         "vscode": "^1.26.0"
     },
     "categories": [
         "Other"
     ],
+    "keywords": [
+        "touchbar",
+        "Touch Bar",
+        "MacBook",
+        "Mac"
+    ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:zoles.touchBar.terminal",
+        "onCommand:zoles.touchBar.jumpToBracket",
+        "onCommand:zoles.touchBar.showReferences",
+        "onCommand:zoles.touchBar.duplicate",
+        "onCommand:zoles.touchBar.rename",
+        "onCommand:zoles.touchBar.gitSync"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "zoles.touchBar.terminal",
+                "group": "touchBar",
+                "title": ">_"
+            },
+            {
+                "command": "zoles.touchBar.jumpToBracket",
+                "group": "touchBar",
+                "title": "→}"
+            },
+            {
+                "command": "zoles.touchBar.showReferences",
+                "group": "touchBar",
+                "title": "ƒ⥺"
+            },
+            {
+                "command": "zoles.touchBar.duplicate",
+                "group": "touchBar",
+                "title": "☰↓"
+            },
+            {
+                "command": "zoles.touchBar.rename",
+                "group": "touchBar",
+                "title": "✎_"
+            },
+            {
+                "command": "zoles.touchBar.gitSync",
+                "group": "touchBar",
+                "title": "↻"
+            }
+        ],
+        "menus": {
+            "touchBar": [
+                {
+                    "command": "zoles.touchBar.terminal",
+                    "group": "touchBar",
+                    "when": "config.touchBar.terminal"
+                },
+                {
+                    "command": "zoles.touchBar.jumpToBracket",
+                    "group": "touchBar",
+                    "when": "config.touchBar.jumpToBracket"
+                },
+                {
+                    "command": "zoles.touchBar.showReferences",
+                    "group": "touchBar",
+                    "when": "config.touchBar.showReferences"
+                },
+                {
+                    "command": "zoles.touchBar.duplicate",
+                    "group": "touchBar",
+                    "when": "config.touchBar.duplicate"
+                },
+                {
+                    "command": "zoles.touchBar.rename",
+                    "group": "touchBar",
+                    "when": "config.touchBar.rename"
+                },
+                {
+                    "command": "zoles.touchBar.gitSync",
+                    "group": "touchBar",
+                    "when": "config.touchBar.gitSync"
+                }
+            ]
+        },
+        "configuration": [
+            {
+                "title": "Zoles Touch Bar Buttons",
+                "type": "object",
+                "properties": {
+                    "touchBar.terminal": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Show/hide terminal window."
+                    },
+                    "touchBar.jumpToBracket": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Jump to matching bracket."
+                    },
+                    "touchBar.showReferences": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "List references what use the current symbol."
+                    },
+                    "touchBar.duplicate": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Duplicate the current line below."
+                    },
+                    "touchBar.rename": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Replace function, variable etc. name everywhere."
+                    },
+                    "touchBar.gitSync": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Git sync: performs a git pull and a git push."
+                    }
+                }
             }
         ]
     },
+    
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",

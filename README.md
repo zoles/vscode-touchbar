@@ -1,6 +1,6 @@
 # vscode-touchbar README
 
-This is the README for your extension "vscode-touchbar". After writing up a brief description, we recommend including the following sections.
+Basic experiment to create VS Code extention for MacBookPro's touch bar
 
 ## Features
 
