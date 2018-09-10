@@ -21,9 +21,6 @@ This extension contributes the following settings:
 
 ## Installing your extension locally
 The extention is not published to the _Extention Marketplace_.
-To get the extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder:
-
-* Windows: `%USERPROFILE%\.vscode\extensions`
-* macOS/Linux: `$HOME/.vscode/extensions`
+To get the extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder: `$HOME/.vscode/extensions`
 
 **Enjoy!**
